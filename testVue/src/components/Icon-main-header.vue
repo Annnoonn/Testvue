@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+
 
 
 
@@ -7,7 +7,7 @@ import { ref } from 'vue'
 
 <template>
     
-    <img class="w-[50px] hover:opacity-50 duration-200  " src="images/imageSI.png" >
+    <img class="w-[50px] hover:opacity-50 duration-200  " src="@/assets/images/imageSI.png" >
 
 </template>
 
