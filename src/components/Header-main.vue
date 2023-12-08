@@ -5,6 +5,10 @@ import Search from "./Search-button-main.vue"
 import {ref} from 'vue'
 
 
+
+
+
+
 const isElementHovered = ref(false);
 
 function handleMouseOver(){
@@ -18,17 +22,21 @@ isElementHovered.value=false
   }
 
 
+function test(){
+  console.log("aazaaz")
+}
+
 
 </script>
 
 <template>
   <header class="relative bg-[#1d1c1c]  p-3 flex justify-start wfont-bold text-4xl z-10 " >
-    <Icon class="ml-30 "/>
+    <Icon class="ml-30  "/>
     <div class="flex justify-start w-300">
     <Button button-text="MENU" class="relative" @mouseover="handleMouseOver" @mouseleave="handleMouseLeave" />
     <Button button-text="NOS OBJECTIFS"  />
     <Button button-text="ACTUS"/>   
-    <Button button-text="FAIRE LE QUIZ "/>   
+    <Button button-text="FAIRE LE QUIZ " @click="test"/>   
   </div>     
     <Search />
 
@@ -41,6 +49,7 @@ isElementHovered.value=false
   
   </header>
 
+  
 </template>
 
 

@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
 
+import Quiz from './components/Main-page-quiz.vue'
+import {ref} from 'vue'
 import Header from './components/Header-main.vue'
+
+
+
+
+
 </script>
 
 <template>
-  <Header  />
-
+  <Header />
+  <Quiz   />
 
 </template>
 
