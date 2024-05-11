@@ -1,23 +1,16 @@
 <script setup lang="ts">
-
 import Quiz from './components/Main-page-quiz.vue'
-import {ref} from 'vue'
 import Header from './components/Header-main.vue'
-
-
-
-
-
+import Footer from './components/Footer-main.vue'
 </script>
 
 <template>
   <Header />
-  <Quiz   />
+  <Quiz />
+  <Footer />
 
 </template>
 
 <style>
-body{
-  background-color: white;
-}
+
 </style>
