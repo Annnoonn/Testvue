@@ -12,17 +12,17 @@ import {
 export default defineConfig({
   theme: {
     colors: {
-      // primary: {
-      //   400: '#6378ff',
-      //   DEFAULT: '#5468FF',
-      //   600: '#475fff',
-      // },
+      primary: {
+        400: '#6378ff',
+        DEFAULT: '#1d1c1c',
+        600: '#475fff',
+      },
 
-      // white: {
-      //   300: '#7C7A85',
-      //   400: '#B5B2BC',
-      //   DEFAULT: '#EEEEF0',
-      // },
+      secondary: {
+        300: '#7C7A85',
+        400: '#B5B2BC',
+        DEFAULT: '#FF3131',
+      },
     },
   },
 

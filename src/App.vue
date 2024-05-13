@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import Quiz from './components/Main-page-quiz.vue'
 import Header from './components/Header-main.vue'
 import Footer from './components/Footer-main.vue'
 </script>
 
 <template>
-  <Header />
-  <Quiz />
-  <Footer />
-
+  <div class="flex flex-col h-full">
+    <Header />
+    <RouterView class="flex-1"></RouterView>
+    <Footer />
+  </div>
 </template>
 
-<style>
-
-</style>
+<style></style>

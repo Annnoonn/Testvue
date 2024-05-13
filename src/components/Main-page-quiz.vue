@@ -1,12 +1,17 @@
 <script defer setup lang="ts">
 import { computed, ref } from 'vue'
+import pageTitle from './pageTitle.vue'
+
+const reloadPage = () => {
+  location.reload()
+}
 
 const quiz = ref([
   {
     question: "Qu'est-ce que signifie l'acronyme ESN?",
     answer: [
       { label: '1f', isCorrect: false },
-      { label: '1v', isCorrect: true },
+      { label: 'Entreprise de Services du Numérique.', isCorrect: true },
       { label: '1fx', isCorrect: false }
     ],
     selectedAnswer: null
@@ -15,7 +20,10 @@ const quiz = ref([
     question: "Quel est le rôle principal d'une ESN?",
     answer: [
       { label: '2f', isCorrect: false },
-      { label: '2v', isCorrect: true },
+      {
+        label: 'fournir des services et des solutions informatiques à ses clients',
+        isCorrect: true
+      },
       { label: '2fx', isCorrect: false }
     ],
     selectedAnswer: null
@@ -24,17 +32,24 @@ const quiz = ref([
     question: "Pour un dirigeant TPE/PME est-il important de s'informer à l’actu technologique ?",
     answer: [
       { label: '3fx', isCorrect: false },
-      { label: '3v', isCorrect: true },
+      {
+        label:
+          "Oui, il est important pour un dirigeant TPE/PME de s'informer sur l'actualité technologique",
+        isCorrect: true
+      },
       { label: '3f', isCorrect: false }
     ],
     selectedAnswer: null
   },
 
   {
-    question: "Oui, mon l'entreprise peut rester à jour avec les avancées technologiques",
+    question: 'Mon entreprise peut-elle rester à jour avec les avancées technologiques ?',
     answer: [
       { label: '4fx', isCorrect: false },
-      { label: '4v', isCorrect: true },
+      {
+        label: "Oui, mon l'entreprise peut rester à jour avec les avancées technologiques",
+        isCorrect: true
+      },
       { label: '4f', isCorrect: false }
     ],
     selectedAnswer: null
@@ -44,7 +59,11 @@ const quiz = ref([
     question: 'Comment digitaliser son entreprise ?',
     answer: [
       { label: '5f', isCorrect: false },
-      { label: '5v', isCorrect: true },
+      {
+        label:
+          'Mettre en place des outils informatiques, des plateformes en ligne, automatiser les processus',
+        isCorrect: true
+      },
       { label: '5f', isCorrect: false }
     ],
     selectedAnswer: null
@@ -55,28 +74,23 @@ const quiz = ref([
     answer: [
       { label: '6f', isCorrect: false },
       { label: '6f', isCorrect: false },
-      { label: '6v', isCorrect: true }
+      { label: "Technologie de l'Information", isCorrect: true }
     ],
     selectedAnswer: null
   },
 
   {
-    question: "Qu'est-ce que l'acronyme anglais 'IT' signifie en français ? ",
+    question: "Qu'est-ce que l'acronyme anglais 'IT' signifie en anglais ? ",
     answer: [
       { label: '7f', isCorrect: false },
       { label: '7f', isCorrect: false },
-      { label: '7v', isCorrect: true }
+      { label: 'Information Technology', isCorrect: true }
     ],
     selectedAnswer: null
   }
 ])
 
-
-
 const isPlaying = ref(false)
-const count = ref(0)
-
-
 
 const nbCorrectAnswers = computed(() => {
   var counterAnswer = 0
@@ -89,23 +103,14 @@ const nbCorrectAnswers = computed(() => {
         counterAnswer++
       }
     }
-    
   }
   return counterAnswer
 })
-
-
 </script>
 
 <!-- Titre de base -->
 <template>
-  <div class="flex flex-col items-center">
-    <h1 class="text-center mt-20 mb-1 text-4xl">LE QUIZ</h1>
-    <div class="bg-black h-1 w-100"></div>
-    <h2 class="text-3xl mt-1">Testez vos connaissances</h2>
-  </div>
-
-  <div>{{ count }}</div>
+  <pageTitle titleText="QUIZ" titleSubText="Testez vos connaissances" />
 
   <!-- Liste des questions -->
   <div class="flex flex-col items-center">
@@ -127,15 +132,22 @@ const nbCorrectAnswers = computed(() => {
     </div>
 
     <!-- Bouton réponse -->
-    <p class="font-700 mt-4" v-if="isPlaying === true">Vous avez obtenu {{ nbCorrectAnswers }} points</p>
+    <p class="font-700 mt-4" v-if="isPlaying === true">
+      Vous avez obtenu {{ nbCorrectAnswers }} points
+    </p>
     <button
-      class="bg-black color-white p-3 rounded-md w-70 hover:bg-[#252725] duration-200 mt-1 text-5"
-      @click="isPlaying = true" 
+      class="bg-black color-white p-3 rounded-md w-70 hover:bg-secondary duration-200 mt-1 text-5"
+      @click="isPlaying = true"
     >
       Réponses
     </button>
 
-    
+    <button
+      @click="reloadPage"
+      class="mt-7 bg-black hover:bg-secondary text-white font-bold py-2 px-4 rounded duration-200"
+    >
+      Refaire le quiz
+    </button>
   </div>
 </template>
 
